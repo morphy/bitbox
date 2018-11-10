@@ -10,7 +10,7 @@
     <div id="app">
       <input v-model="variables" type="number">
       <p>Variables: {{ variables }}</p>
-      <button v-on:click="createTable(variables)">Go</button>
+      <button v-on:click="map(variables)">Go</button>
       <table>
         <thead>
         </thead>
@@ -32,9 +32,35 @@
         },
         methods:
         {
-          createTable: function(a)
+          map: function(a)
           {
-            console.log(this.gray[a]);
+            var x = Math.ceil(a / 2);
+            var y = Math.floor(a / 2);
+            var m = Array();
+            var o =
+            {
+              x: 0,
+              y: 0,
+              gray_x: 000,
+              gray_y: 000
+            }
+
+            for(var i=0; i<=x; i++)
+            {
+              for(var j=0; j<=y; j++)
+              {
+                m.push(
+                {
+                  x: i,
+                  y: j,
+                  gray_x: this.gray[i],
+                  gray_y: this.gray[j]
+                })
+              }
+            }
+
+            console.log(m);
+            console.log(x + ' ' + y);
           }
         }
       });
