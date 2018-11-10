@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Mateusz Wasik">
+    <title>BitBox</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input v-model="variables" type="number">
+      <p>Variables: {{ variables }}</p>
+      <button v-on:click="createTable(variables)">Go</button>
+      <table>
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+
+      var app = new Vue({
+        el: '#app',
+        data:
+        {
+          variables: 1,
+          gray: ['0000','0001','0011','0010','0110','0111','0101','0100','1100','1101','1111','1110','1010','1011','1001','1000'],
+        },
+        methods:
+        {
+          createTable: function(a)
+          {
+            console.log(this.gray[a]);
+          }
+        }
+      });
+
+    </script>
+  </body>
+</html>
